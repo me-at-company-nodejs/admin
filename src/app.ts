@@ -1,12 +1,12 @@
 import express, { Application, Request, Response} from 'express';
+import adminRoute from './routes/admin.route';
 
 const app: Application = express();
 const port: number = 3003;
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello adminms');
-});
+// Link orchestratorRoute with app
+app.use('/admin', adminRoute);
 
 app.listen(port, () => {
-    console.log(`Connectted successfully on port ${port}`);
+    console.log(`Connected successfully on port ${port}`);
 });
